@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Navneet Srivastav - Full-Stack Developer &amp; AI Engineer | Premium Websites, Web Apps, Mobile Apps, AI Solutions &amp; E-commerce. Freelance projects worldwide.">
+    <title>Navneet Srivastav | Full-Stack Developer &amp; AI Engineer</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Bootstrap 5.3 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');
+       
+
+        html, body {
+        overflow-x: hidden;
+       width: 100%;
+      }
+        :root {
+            --accent: #00ff9d;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark .glass {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at 50% 20%, rgba(0, 255, 157, 0.15) 0%, transparent 70%);
+        }
+        .nav {
+    width: 100%;
+    overflow-x: hidden;
+}
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00ff9d;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @media (max-width: 768px) {
+    .floating-icon {
+        display: none !important;
+    }
+}
+
+        .mobile-link {
+    position: relative;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.mobile-link:hover {
+    color: #00ff9d;
+    transform: scale(1.1);
+}
+        .custom-cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #00ff9d;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: all 0.1s ease;
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .custom-cursor {
+                display: block;
+            }
+        }
+        
+        .floating-icon {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+        #mobile-menu {
+    width: 100%;
+    height: 100vh;
+}
+
+    </style>
+</head>
+<body class="bg-zinc-950 text-white overflow-x-hidden font-['Inter'] w-full">
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-[#00ff9d] text-zinc-950 flex items-center justify-center rounded-2xl font-bold text-2xl">N</div>
+                <h1 class="text-2xl font-bold tracking-tighter font-['Space_Grotesk']">Navneet Srivastav</h1>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!--  Theme Toggle -->
+                <button id="theme-toggle" class="w-11 h-11 glass rounded-2xl flex items-center justify-center text-xl hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-moon"></i>
+                </button> 
+                
+                <!-- Hire Button -->
+                <a href="#contact" 
+                   class="px-6 py-3 bg-[#00ff9d] text-zinc-950 font-semibold rounded-2xl hover:bg-white transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Hire Me</span>
+                </a>
+
+                <!-- Mobile Hamburger -->
+                <button id="mobile-menu-btn" class="md:hidden w-11 h-11 glass rounded-2xl flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" 
+        class="fixed inset-0 bg-black/95 z-[9999] hidden flex flex-col justify-start items-start">
+   
+       <!-- Close Button -->
+       <div class="flex justify-end p-6">
+           <button id="close-menu" class="text-4xl">
+               <i class="fa-solid fa-xmark"></i>
+           </button>
+       </div>
+   
+       <!-- Menu Links -->
+       <div class="mt-20 px-6 flex flex-col gap-6 text-2xl font-semibold w-full">
+           <a href="#about" class="mobile-link">About</a>
+           <a href="#skills" class="mobile-link">Skills</a>
+           <a href="#projects" class="mobile-link">Projects</a>
+           <a href="#services" class="mobile-link">Services</a>
+           <a href="#testimonials" class="mobile-link">Testimonials</a>
+           <a href="#contact" class="mobile-link">Contact</a>
+       </div>
+   </div>
+    </nav>
+    
+    <section id="hero" class="min-h-screen hero-bg flex items-center relative pt-24 md:pt-0">
+        <div class="max-w-7xl mx-auto px-5 md:px-9 pt-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-3 px-5 py-2.5 glass rounded-3xl text-sm">
+                        <div class="w-3 h-3 bg-[#00ff9d] rounded-full animate-pulse"></div>
+                        <span class="font-medium">Available for freelance worldwide</span>
+                    </div>
+
+                    <h1 id="hero-name" 
+                        class="text-2xl md:text-5xl lg:text-7xl font-bold leading-none tracking-tighter font-['Space_Grotesk']">
+                        NAVNEET<br>SRIVASTAV
+                    </h1>
+                    
+                    <div class="text-3xl md:text-4xl text-zinc-400">
+                        Full-Stack Developer &amp;<br>
+                        <span class="text-[#00ff9d]">AI Engineer</span>
+                    </div>
+
+                    <p class="max-w-lg text-xl text-zinc-400">
+                        Turning ideas into high-converting digital products that bring you clients.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" 
+                           onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})"
+                           class="px-8 py-3 bg-white text-zinc-950 rounded-2xl font-semibold flex items-center gap-3 hover:scale-105 transition-transform">
+                            View My Projects
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        
+                        <button onclick="downloadResume()" 
+                                class="px-8 py-3 border border-white/30 rounded-2xl font-medium flex items-center gap-3 hover:border-[#00ff9d] transition-all">
+                            <i class="fa-solid fa-download"></i>
+                            Resume
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Visual -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-80 h-80 md:w-96 md:h-96">
+                        <!-- Profile Image -->
+                        <div class="absolute inset-0 rounded-[4rem] overflow-hidden border-8 border-[#00ff9d]/30 shadow-2xl">
+                            <img src="WhatsApp Image 2026-03-16 at 12.20.36.jpeg" 
+                                 alt="Navneet Srivastav" 
+                                 class="w-full h-full object-cover object-top grayscale-[0.3] hover:grayscale-0 transition-all duration-700"
+                                 id="profile-img">
+                        </div>
+                        
+                        <!-- Floating Tech Icons -->
+                        <div class="absolute -top-10 -left-10 text-6xl floating-icon hidden md:block" style="animation-delay: 0s;">⚡</div>
+                        <div class="absolute top-10 -right-12 text-5xl floating-icon hidden md:block" style="animation-delay: 1.5s;">🧠</div>
+                        <div class="absolute bottom-8 left-12 text-6xl floating-icon hidden md:block" style="animation-delay: 3s;">📱</div>
+                        <div class="absolute -bottom-6 right-8 text-5xl floating-icon hidden md:block" style="animation-delay: 4.2s;">💻</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center gap-2">
+            <div class="text-xs tracking-widest opacity-60">SCROLL TO EXPLORE</div>
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-[#00ff9d] to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-16 md:py-28 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Bio -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-px w-12 bg-[#00ff9d]"></div>
+                        <span class="uppercase tracking-widest text-sm font-medium text-[#00ff9d]">Who I Am</span>
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8">Hi, I'm Navneet Srivastav</h2>
+                    
+                    <div class="space-y-6 text-lg text-zinc-300">
+                        <p>
+                            I'm Full-Stack Developer &amp; AI Engineer based in Lucknow, Uttar Pradesh, India. 
+                            With <strong>2+ years</strong> of experience, I specialize in building premium websites, 
+                            SaaS platforms, mobile apps, and AI-powered solutions that actually generate revenue.
+                        </p>
+                        <p>
+                            From stunning landing pages that convert to complex AI chatbots and e-commerce stores — 
+                            I deliver pixel-perfect, high-performance products that help businesses grow faster.
+                        </p>
+                        <p>
+                            Currently, I am available for freelance projects, startup collaborations, and long-term development partnerships globally. My goal is to work with ambitious teams and founders to build digital products that are not only functional but market-ready and revenue-driven.
+                           </p>
+                    </div>
+
+                    <div class="mt-12 flex flex-wrap gap-8 text-sm">
+                        <div>
+                            <div class="text-zinc-400">LOCATION</div>
+                            <div class="font-semibold">Lucknow, India</div>
+                        </div>
+                        <div>
+                            <div class="text-zinc-400">EXPERIENCE</div>
+                            <div class="font-semibold">2+ Years</div>
+                        </div>
+                        <div>
+                            <div class="text-zinc-400">PROJECTS DELIVERED</div>
+                            <div class="font-semibold">15+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo + Stats -->
+                <div class="relative">
+                    <img src="WhatsApp Image 2026-03-16 at 13.23.01.jpeg" 
+                         alt="Navneet Srivastav" 
+                         class="rounded-3xl shadow-2xl w-full h-auto object-cover object-top grayscale-[0.3] hover:grayscale-0 transition-all duration-700">
+                    
+                    <div class="absolute -bottom-8 -left-8 glass p-8 rounded-3xl">
+                        <div class="flex gap-8">
+                            <div>
+                                <div class="text-4xl font-bold text-[#00ff9d]">100%</div>
+                                <div class="text-sm text-zinc-400">On-time delivery</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold text-[#00ff9d]">4.98</div>
+                                <div class="text-sm text-zinc-400">Average rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-16 md:py-28">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#00ff9d] uppercase text-sm tracking-widest">Expertise</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-3">Skills &amp; Technologies</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Category 1 -->
+                <div class="glass rounded-3xl p-8">
+                    <div class="flex items-center gap-4 mb-8">
+                        <i class="fa-solid fa-code text-3xl text-[#00ff9d]"></i>
+                        <h3 class="text-2xl font-semibold">Frontend</h3>
+                    </div>
+                    <div id="frontend-skills" class="space-y-7">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Skill Category 2 -->
+                <div class="glass rounded-3xl p-8">
+                    <div class="flex items-center gap-4 mb-8">
+                        <i class="fa-solid fa-server text-3xl text-[#00ff9d]"></i>
+                        <h3 class="text-2xl font-semibold">Backend &amp; AI</h3>
+                    </div>
+                    <div id="backend-skills" class="space-y-7">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Skill Category 3 -->
+                <div class="glass rounded-3xl p-8">
+                    <div class="flex items-center gap-4 mb-8">
+                        <i class="fa-solid fa-mobile-screen text-3xl text-[#00ff9d]"></i>
+                        <h3 class="text-2xl font-semibold">Mobile &amp; Tools</h3>
+                    </div>
+                    <div id="mobile-skills" class="space-y-7">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-16 md:py-28 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+                <div>
+                    <span class="uppercase text-[#00ff9d] text-sm">Featured Work</span>
+                    <h2 class="text-3xl md:text-5xl font-bold">Recent Projects</h2>
+                </div>
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-3 mt-6 md:mt-0" id="project-filters">
+                    <button onclick="filterProjects('all')" class="active-filter px-7 py-3 rounded-3xl text-sm font-medium bg-[#00ff9d] text-zinc-950">All</button>
+                    <button onclick="filterProjects('web')" class="px-7 py-3 rounded-3xl text-sm font-medium border border-white/30 hover:border-white">Web</button>
+                    <button onclick="filterProjects('app')" class="px-7 py-3 rounded-3xl text-sm font-medium border border-white/30 hover:border-white">App</button>
+                    <button onclick="filterProjects('ai')" class="px-7 py-3 rounded-3xl text-sm font-medium border border-white/30 hover:border-white">AI</button>
+                    <button onclick="filterProjects('ecommerce')" class="px-7 py-3 rounded-3xl text-sm font-medium border border-white/30 hover:border-white">E-commerce</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Projects populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-16 md:py-28">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="uppercase text-sm text-[#00ff9d]">What I Offer</span>
+                <h2 class="text-3xl md:text-5xl font-bold">Services for Your Business</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="services-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE ME -->
+    <section class="py-16 md:py-28 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold">Why Clients Choose Me</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div id="stat-1" class="text-4xl md:text-7xl font-bold text-[#00ff9d]">50</div>
+                    <div class="mt-2 text-xl">Projects Delivered</div>
+                </div>
+                <div class="text-center">
+                    <div id="stat-2" class="text-4xl md:text-7xl font-bold text-[#00ff9d]">30</div>
+                    <div class="mt-2 text-xl">Happy Clients</div>
+                </div>
+                <div class="text-center">
+                    <div id="stat-3" class="text-4xl md:text-7xl font-bold text-[#00ff9d]">4.98</div>
+                    <div class="mt-2 text-xl">Average Rating</div>
+                </div>
+                <div class="text-center">
+                    <div id="stat-4" class="text-4xl md:text-7xl font-bold text-[#00ff9d]">100</div>
+                    <div class="mt-2 text-xl">On-time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-16 md:py-28">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold">Client Love</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass rounded-3xl p-8">
+                    <div class="flex gap-1 text-[#00ff9d] mb-6">
+                        ★★★★☆
+                    </div>
+                    <p class="text-lg">"Navneet built our entire SaaS platform in just 6 weeks. The UI is absolutely stunning and the AI features work flawlessly. Best developer I've ever worked with!"</p>
+                    <div class="mt-8 flex items-center gap-4">
+                        <img src="https://picsum.photos/id/201/80/80" class="w-12 h-12 rounded-2xl">
+                        <div>
+                            <div class="font-semibold">Sarah Patel</div>
+                            <div class="text-sm text-zinc-400">CEO, Growthly AI</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="glass rounded-3xl p-8">
+                    <div class="flex gap-1 text-[#00ff9d] mb-6">
+                        ★★★★★
+                    </div>
+                    <p class="text-lg">"Turned my vague idea into a beautiful e-commerce store that made ₹4.2 lakh in the first month. Navneet is a true professional."</p>
+                    <div class="mt-8 flex items-center gap-4">
+                        <img src="https://picsum.photos/id/29/80/80" class="w-12 h-12 rounded-2xl">
+                        <div>
+                            <div class="font-semibold">Rahul Sharma</div>
+                            <div class="text-sm text-zinc-400">Founder, TrendCart</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="glass rounded-3xl p-8">
+                    <div class="flex gap-1 text-[#00ff9d] mb-6">
+                        ★★★★☆
+                    </div>
+                    <p class="text-lg">"The AI chatbot he built increased our lead generation by 340%. Super responsive and always delivered more than expected."</p>
+                    <div class="mt-8 flex items-center gap-4">
+                        <img src="https://picsum.photos/id/64/80/80" class="w-12 h-12 rounded-2xl">
+                        <div>
+                            <div class="font-semibold">Priya Kapoor</div>
+                            <div class="text-sm text-zinc-400">Marketing Head, EduTech India</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI SMART ASSISTANT -->
+    <div onclick="toggleAIChat()" id="ai-bubble"
+         class="fixed bottom-8 right-8 w-16 h-16 bg-[#00ff9d] text-zinc-950 rounded-3xl flex items-center justify-center text-4xl shadow-2xl cursor-pointer hover:scale-110 transition-transform z-50">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+
+    <!-- AI Modal -->
+    <div id="ai-modal" class="hidden fixed inset-0 bg-black/70 z-[999] flex items-end lg:items-center justify-center">
+        <div class="bg-zinc-900 w-full max-w-lg mx-4 lg:mx-0 rounded-t-3xl lg:rounded-3xl overflow-hidden">
+            <!-- Header -->
+            <div class="p-6 border-b border-white/10 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-[#00ff9d] rounded-2xl flex items-center justify-center text-zinc-950">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <div class="font-semibold">Navneet's AI Assistant</div>
+                        <div class="text-xs text-zinc-400">Ask me anything about services &amp; pricing</div>
+                    </div>
+                </div>
+                <button onclick="toggleAIChat()" class="text-3xl text-zinc-400">×</button>
+            </div>
+            
+            <!-- Chat Body -->
+            <div id="ai-chat-body" class="h-96 p-6 overflow-y-auto space-y-6 bg-zinc-950">
+                <!-- Messages added by JS -->
+            </div>
+            
+            <!-- Quick Replies -->
+            <div class="px-6 pb-4 flex gap-2 flex-wrap">
+                <button onclick="quickReply(this)" class="text-xs bg-white/10 px-4 py-2 rounded-3xl">What services do you offer?</button>
+                <button onclick="quickReply(this)" class="text-xs bg-white/10 px-4 py-2 rounded-3xl">How much for a website?</button>
+                <button onclick="quickReply(this)" class="text-xs bg-white/10 px-4 py-2 rounded-3xl">Tell me about your AI work</button>
+            </div>
+            
+            <!-- Input -->
+            <div class="p-6 border-t border-white/10 flex gap-3">
+                <input id="ai-input" type="text" 
+                       class="flex-1 bg-zinc-800 rounded-3xl px-6 py-4 focus:outline-none"
+                       placeholder="Type your question...">
+                <button onclick="sendAIMessage()" 
+                        class="w-12 h-12 bg-[#00ff9d] text-zinc-950 rounded-3xl flex items-center justify-center">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <!-- CONTACT -->
+<section id="contact" class="py-16 md:py-28 bg-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 overflow-hidden">
+        <div class="grid lg:grid-cols-2 gap-12 md:gap-16">
+            
+            <!-- Form -->
+            <div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-10">
+                    Let's Build Something Great
+                </h2>
+                
+                <form id="contact-form" onsubmit="handleSubmit(event)" class="space-y-6 md:space-y-8">
+                    
+                    <!-- Name + Email -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full">
+                        
+                        <input type="text" id="name" required placeholder="Your Name"
+                            class="w-full bg-transparent border border-white/20 rounded-2xl px-4 md:px-6 py-3 focus:border-[#00ff9d] outline-none">
+                        
+                        <input type="email" id="email" required placeholder="Email Address"
+                            class="w-full bg-transparent border border-white/20 rounded-2xl px-4 md:px-6 py-3 focus:border-[#00ff9d] outline-none">
+                    
+                    </div>
+                    
+                    <!-- Service -->
+                    <select id="service"
+                        class="w-full bg-transparent border border-white/20 rounded-2xl px-4 md:px-6 py-3 focus:border-[#00ff9d] outline-none">
+                        <option value="">Select Service</option>
+                        <option value="Website">Website Development</option>
+                        <option value="Web App">Web App / SaaS</option>
+                        <option value="Mobile App">Mobile App</option>
+                        <option value="AI">AI Integration</option>
+                        <option value="Ecommerce">E-commerce Store</option>
+                    </select>
+                    
+                    <!-- Message -->
+                    <textarea id="message" rows="5" placeholder="Tell me about your project..."
+                        class="w-full bg-transparent border border-white/20 rounded-2xl px-4 md:px-6 py-3 focus:border-[#00ff9d] outline-none"></textarea>
+                    
+                    <!-- Button -->
+                    <button type="submit"
+                        class="w-full py-4 md:py-5 bg-[#00ff9d] text-zinc-950 rounded-2xl font-bold text-base md:text-lg flex items-center justify-center gap-3">
+                        SEND MESSAGE
+                        <span id="form-loading" class="hidden animate-spin">⟳</span>
+                    </button>
+                
+                </form>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="space-y-10 md:space-y-12">
+                
+                <!-- Email -->
+                <div>
+                    <div class="text-sm text-zinc-400 mb-2">REACH ME DIRECTLY</div>
+                    <a href="mailto:navneetsrivastav764@gmail.com"
+                        class="block text-xl md:text-3xl break-all hover:text-[#00ff9d] transition-colors">
+                        navneetsrivastav764@gmail.com
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex flex-col gap-6 md:gap-8">
+                    
+                    <a href="https://www.facebook.com/profile.php?id=100083084945424"
+                        class="flex items-center gap-4 md:gap-5 group">
+                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-2xl md:text-3xl">𝕗</div>
+                        <div>
+                            <div class="font-medium group-hover:text-[#00ff9d]">Facebook</div>
+                            <div class="text-sm text-zinc-400">Follow on Facebook</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://wa.me/918726519334"
+                        class="flex items-center gap-4 md:gap-5 group">
+                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-2xl md:text-3xl">📱</div>
+                        <div>
+                            <div class="font-medium group-hover:text-[#00ff9d]">WhatsApp / Call</div>
+                            <div class="text-sm text-zinc-400">+91 8726519334</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/navneet-srivastav-a84b38377"
+                        class="flex items-center gap-4 md:gap-5 group">
+                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-2xl md:text-3xl">in</div>
+                        <div>
+                            <div class="font-medium group-hover:text-[#00ff9d]">LinkedIn</div>
+                            <div class="text-sm text-zinc-400">Connect professionally</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://instagram.com/navneet_sri_"
+                        class="flex items-center gap-4 md:gap-5 group">
+                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-2xl md:text-3xl">◎</div>
+                        <div>
+                            <div class="font-medium group-hover:text-[#00ff9d]">Instagram</div>
+                            <div class="text-sm text-zinc-400">Follow on Instagram</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://github.com/Navneet764"
+                        class="flex items-center gap-4 md:gap-5 group">
+                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-xl md:text-2xl">&lt;&gt;</div>
+                        <div>
+                            <div class="font-medium group-hover:text-[#00ff9d]">GitHub</div>
+                            <div class="text-sm text-zinc-400">Follow on GitHub</div>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-sm text-zinc-400">
+                    © 2025 Navneet Srivastav.
+                </div>
+                
+                <div class="flex gap-8 text-2xl">
+                    <a href="https://linkedin.com/in/navneet-srivastav-a84b38377" class="hover:text-[#00ff9d]"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/Navneet764" class="hover:text-[#00ff9d]"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://instagram.com/navneet_sri_" class="hover:text-[#00ff9d]"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                
+                <div class="text-sm text-zinc-400">
+                    Lucknow, India • Available Worldwide
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QUOTE MODAL (for services) -->
+    <div id="quote-modal" class="hidden fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center">
+        <div class="bg-zinc-900 max-w-md w-full mx-4 rounded-3xl p-8">
+            <h3 class="text-2xl font-bold mb-6">Request a Quote</h3>
+            <form id="quote-form" onsubmit="submitQuote(event)" class="space-y-6">
+                <input type="text" placeholder="Your Name" class="w-full px-6 py-4 rounded-2xl bg-zinc-800">
+                <input type="email" placeholder="Email" class="w-full px-6 py-4 rounded-2xl bg-zinc-800">
+                <textarea placeholder="Project details" rows="4" class="w-full px-6 py-4 rounded-2xl bg-zinc-800"></textarea>
+                <div class="flex gap-4">
+                    <button type="button" onclick="closeQuoteModal()" 
+                            class="flex-1 py-4 border border-white/30 rounded-2xl">Cancel</button>
+                    <button type="submit" 
+                            class="flex-1 py-4 bg-[#00ff9d] text-zinc-950 rounded-2xl font-semibold">Send Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind config
+        function initializeTailwind() {
+            tailwind.config = {
+                content: [],
+                theme: {
+                    extend: {
+                        colors: {
+                            accent: '#00ff9d'
+                        }
+                    }
+                }
+            }
+        }
+
+        // GSAP + ScrollTrigger registration
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Populate skills
+        function populateSkills() {
+            const frontendHTML = `
+                <div class="flex justify-between text-sm mb-1"><span>React / Next.js</span><span></span></div>
+                <div class="h-2 bg-zinc-800 rounded-full overflow-hidden"><div class="skill-bar h-full bg-[#00ff9d] w-0" data-width="100"></div></div>
+                
+                <div class="flex justify-between text-sm mb-1 mt-6"><span>Tailwind + GSAP</span><span></span></div>
+                <div class="h-2 bg-zinc-800 rounded-full overflow-hidden"><div class="skill-bar h-full bg-[#00ff9d] w-0" data-width="100"></div></div>
+                
+                <div class="flex justify-between text-sm mb-1 mt-6"><span>HTML / CSS / JS</span><span></span></div>
+                <div class="h-2 bg-zinc-800 rounded-full overflow-hidden"><div class="skill-bar h-full bg-[#00ff9d] w-0" data-width="100"></div></div>
+            `;
+            
+            const backendHTML = `
+                <div class="flex justify-between text-sm mb-1"><span>Node.js / Express</span><span></span></div>
+                <div class="h-2 bg-zinc-800 rounded-full overflow-hidden"><div class="skill-bar h-full bg-[#00ff9d] w-0" data-width="100"></div></div>
+                
+                <div class="flex justify-between text-sm mb-1 mt-6"><span>Python + Django</span><span></span></div>
+                <div class="h-2 bg-zinc-800 rounded-full overflow-hidden"><div class="skill-bar h-full bg-[#00ff9d] w-0" data-width="100"></div></div>
+                
+                <div class="flex justify-between text-sm mb-1 mt-6"><span>OpenAI API / LangChain</span><span></span></div>
+                <div class="h-2 bg-zinc-800 rounded-full overflow-hidden"><div class="skill-bar h-full bg-[#00ff9d] w-0" data-width="100"></div></div>
+            `;
+            
+            const mobileHTML = `
+                <div class="flex justify-between text-sm mb-1"><span>React Native</span><span></span></div>
+                <div class="h-2 bg-zinc-800 rounded-full overflow-hidden"><div class="skill-bar h-full bg-[#00ff9d] w-0" data-width="100"></div></div>
+                
+                <div class="flex justify-between text-sm mb-1 mt-6"><span>Flutter</span><span></span></div>
+                <div class="h-2 bg-zinc-800 rounded-full overflow-hidden"><div class="skill-bar h-full bg-[#00ff9d] w-0" data-width="100"></div></div>
+                
+                <div class="flex justify-between text-sm mb-1 mt-6"><span>Figma + Docker</span><span></span></div>
+                <div class="h-2 bg-zinc-800 rounded-full overflow-hidden"><div class="skill-bar h-full bg-[#00ff9d] w-0" data-width="100"></div></div>
+            `;
+            
+            document.getElementById('frontend-skills').innerHTML = frontendHTML;
+            document.getElementById('backend-skills').innerHTML = backendHTML;
+            document.getElementById('mobile-skills').innerHTML = mobileHTML;
+        }
+
+        // Animate skill bars
+        function animateSkillBars() {
+            const bars = document.querySelectorAll('.skill-bar');
+            bars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                gsap.to(bar, {
+                    width: width + '%',
+                    duration: 1.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: bar,
+                        start: "top 80%"
+                    }
+                });
+            });
+        }
+
+        // Projects data
+        const projects = [
+            {
+                id: 1,
+                category: "ecommerce",
+                title: "TrendCart - AI E-commerce",
+                desc: "Full-featured Shopify alternative with AI product recommendations",
+                tech: "Next.js, Tailwind, Stripe, OpenAI",
+                img: "https://picsum.photos/id/201/600/400",
+                live: "#",
+                github: "#"
+            },
+            {
+                id: 2,
+                category: "ai",
+                title: "SmartResume AI",
+                desc: "AI-powered resume builder with ATS optimization",
+                tech: "React, Python, LangChain",
+                img: "https://picsum.photos/id/29/600/400",
+                live: "#",
+                github: "#"
+            },
+            {
+                id: 3,
+                category: "app",
+                title: "FitTrack Mobile App",
+                desc: "React Native fitness app with workout AI coach",
+                tech: "React Native, Firebase",
+                img: "https://picsum.photos/id/160/600/400",
+                live: "#",
+                github: "#"
+            },
+            {
+                id: 4,
+                category: "web",
+                title: "Corporate SaaS Dashboard",
+                desc: "Analytics dashboard for fintech startup",
+                tech: "Next.js, Recharts, Supabase",
+                img: "https://picsum.photos/id/1015/600/400",
+                live: "#",
+                github: "#"
+            },
+            {
+                id: 5,
+                category: "ai",
+                title: "ChatBot Pro",
+                desc: "Custom GPT-powered customer support chatbot",
+                tech: "OpenAI API, Node.js",
+                img: "https://picsum.photos/id/201/600/400",
+                live: "#",
+                github: "#"
+            },
+            {
+                id: 6,
+                category: "ecommerce",
+                title: "Luxury Fashion Store",
+                desc: "High-end e-commerce with 3D product viewer",
+                tech: "React, Three.js, Shopify",
+                img: "https://picsum.photos/id/29/600/400",
+                live: "#",
+                github: "#"
+            }
+        ];
+
+        function renderProjects(filterProjects) {
+            const container = document.getElementById('projects-grid');
+            container.innerHTML = '';
+            
+            filterProjects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = `project-card glass rounded-3xl overflow-hidden group`;
+                card.innerHTML = `
+                    <div class="relative overflow-hidden">
+                        <img src="${project.img}" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110" alt="${project.title}">
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span class="px-4 py-1 text-xs font-medium bg-black/70 rounded-full">${project.category.toUpperCase()}</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl mb-2">${project.title}</h3>
+                        <p class="text-zinc-400 text-sm mb-6">${project.desc}</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            ${project.tech.split(', ').map(t => `<span class="text-[10px] px-3 py-1 bg-white/10 rounded-full">${t}</span>`).join('')}
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="${project.live}" target="_blank" class="flex-1 text-center py-3 border border-white/30 rounded-2xl text-sm hover:bg-white hover:text-zinc-950 transition-all">Live Demo</a>
+                            <a href="${project.github}" target="_blank" class="flex-1 text-center py-3 border border-white/30 rounded-2xl text-sm hover:bg-white hover:text-zinc-950 transition-all">GitHub</a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+                
+                // GSAP hover animation
+                gsap.to(card, {
+                    y: -12,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    paused: true
+                });
+                
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, { y: -12, duration: 0.4 });
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, { y: 0, duration: 0.4 });
+                });
+            });
+        }
+        function filterProjects(category) {
+
+const buttons = document.querySelectorAll('#project-filters button');
+
+// remove active
+buttons.forEach(btn => {
+    btn.classList.remove('active-filter', 'bg-[#00ff9d]', 'text-zinc-950');
+});
+
+// find clicked button manually
+const activeBtn = Array.from(buttons).find(btn =>
+    btn.textContent.toLowerCase().includes(category)
+);
+
+if (category === 'all') {
+    buttons[0].classList.add('active-filter', 'bg-[#00ff9d]', 'text-zinc-950');
+} else if (activeBtn) {
+    activeBtn.classList.add('active-filter', 'bg-[#00ff9d]', 'text-zinc-950');
+}
+
+// filter logic
+let filtered = category === 'all'
+    ? projects
+    : projects.filter(p => p.category === category);
+
+renderProjects(filtered);
+}
+
+// Services data
+        const servicesData = [
+            { title: "Website Development", icon: "🌐", price: "₹18,000", desc: "Landing pages, corporate sites, blogs" },
+            { title: "Web App Development", icon: "💻", price: "₹45,000", desc: "SaaS dashboards &amp; custom tools" },
+            { title: "Mobile App Development", icon: "📱", price: "₹65,000", desc: "React Native &amp; Flutter apps" },
+            { title: "UI/UX Design", icon: "🎨", price: "₹25,000", desc: "Figma prototypes &amp; user testing" },
+            { title: "AI Integration", icon: "🤖", price: "₹35,000", desc: "Chatbots, image gen &amp; automation" },
+            { title: "E-commerce Solutions", icon: "🛒", price: "₹32,000", desc: "Shopify + custom stores" },
+            { title: "Custom AI Tools", icon: "🧠", price: "₹50,000", desc: "GPT wrappers &amp; intelligent systems" },
+            { title: "Maintenance &amp; SEO", icon: "⚡", price: "₹12,000", desc: "Performance &amp; ongoing support" }
+        ];
+
+        function renderServices() {
+            const container = document.getElementById('services-grid');
+            servicesData.forEach(service => {
+                const card = document.createElement('div');
+                card.className = "glass rounded-3xl p-8 hover:scale-105 transition-all cursor-pointer";
+                card.innerHTML = `
+                    <div class="text-5xl mb-6">${service.icon}</div>
+                    <h3 class="text-xl font-semibold mb-2">${service.title}</h3>
+                    <p class="text-zinc-400 text-sm mb-8">${service.desc}</p>
+                    <div class="flex flex-col">
+                        <div class="self-start">
+                            <span class="text-xs text-zinc-400">STARTING AT</span>
+                            <div class="text-3xl font-bold text-[#00ff9d]">${service.price}</div>
+                        </div>
+                        <button onclick="openQuoteModal('${service.title}'); event.stopImmediatePropagation();" 
+                                class="self-end px-3 py-3 bg-white text-zinc-950 rounded-2xl text-sm ">Get Quote</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openQuoteModal(serviceName) {
+            document.getElementById('quote-modal').classList.remove('hidden');
+            // Could prefill service name if needed
+        }
+        
+        function closeQuoteModal() {
+            document.getElementById('quote-modal').classList.add('hidden');
+        }
+
+        function animateStats() {
+            function animateValue(id, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    document.getElementById(id).textContent = value + (id === 'stat-3' ? '' : '+');
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        document.getElementById(id).textContent = end + (id === 'stat-3' ? '' : (id === 'stat-4' ? '%' : '+'));
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+            
+            ScrollTrigger.create({
+                trigger: "#stat-1",
+                start: "top 80%",
+                onEnter: () => {
+                    animateValue("stat-1", 0, 15, 1400);
+                    animateValue("stat-2", 0, 20, 1600);
+                    animateValue("stat-3", 0, 4.98, 1800);
+                    animateValue("stat-4", 0, 100, 1200);
+                },
+                once: true
+            });
+        }
+
+        // Theme toggle
+        function setupThemeToggle() {
+            const toggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Default dark
+            html.classList.add('dark');
+            
+            toggle.addEventListener('click', () => {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    toggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+                } else {
+                    html.classList.add('dark');
+                    toggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+                }
+            });
+        }
+
+        // Mobile menu
+
+        function setupMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-menu');
+    const menu = document.getElementById('mobile-menu');
+
+    btn.addEventListener('click', () => {
+        menu.classList.remove('hidden');
+        document.body.style.overflow = "hidden"; // scroll lock
+    });
+
+    closeBtn.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        document.body.style.overflow = "auto";
+    });
+}
+
+
+        let chatOpen = false;
+        
+        function toggleAIChat() {
+            const modal = document.getElementById('ai-modal');
+            if (chatOpen) {
+                modal.classList.add('hidden');
+                chatOpen = false;
+            } else {
+                modal.classList.remove('hidden');
+                chatOpen = true;
+                if (document.getElementById('ai-chat-body').children.length === 0) {
+                    addAIMessage("Hi! I'm Navneet's AI assistant. How can I help you today? 😊", "bot");
+                }
+            }
+        }
+        
+        function addAIMessage(text, type) {
+            const body = document.getElementById('ai-chat-body');
+            const msg = document.createElement('div');
+            msg.className = type === 'bot' ? 
+                "max-w-[80%] bg-zinc-800 rounded-3xl rounded-tl-none px-6 py-4" : 
+                "max-w-[80%] ml-auto bg-[#00ff9d] text-zinc-950 rounded-3xl rounded-tr-none px-6 py-4";
+            msg.innerHTML = `<p>${text}</p>`;
+            body.appendChild(msg);
+            body.scrollTop = body.scrollHeight;
+        }
+        
+        function quickReply(btn) {
+            const question = btn.textContent;
+            addAIMessage(question, 'user');
+            
+            setTimeout(() => {
+                let reply = "Thanks for asking! ";
+                if (question.includes("services")) reply += "I offer website development, mobile apps, AI chatbots, SaaS dashboards, e-commerce stores and more.";
+                else if (question.includes("website")) reply += "A professional website starts at ₹18,000. Want a free consultation?";
+                else if (question.includes("AI")) reply += "I've built multiple AI tools including resume builders, chatbots &amp; image generators.";
+                else reply += "I'd love to discuss your project. What's your budget and timeline?";
+                
+                addAIMessage(reply, 'bot');
+            }, 700);
+        }
+        
+        function sendAIMessage() {
+            const input = document.getElementById('ai-input');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            addAIMessage(text, 'user');
+            input.value = '';
+            
+            setTimeout(() => {
+                let reply = "Got it! ";
+                if (text.toLowerCase().includes("price") || text.toLowerCase().includes("cost")) {
+                    reply += "Most projects start between ₹15,000 - ₹80,000 depending on complexity.";
+                } else if (text.toLowerCase().includes("project")) {
+                    reply += "I can help you build anything from a simple landing page to a full AI SaaS. Let's hop on a call!";
+                } else {
+                    reply += "Navneet usually replies within 2-3 hours. Would you like to leave your email so he can contact you directly?";
+                }
+                addAIMessage(reply, 'bot');
+            }, 800);
+        }
+
+        async function handleSubmit(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const res = await fetch("http://localhost:5000/quote", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, message })
+    });
+
+    const data = await res.json();
+
+    alert(data.message);
+}
+
+         function downloadResume() {
+         const link = document.createElement("a");
+         link.href = "resume/navneet-srivastav-resume.pdf"; // resume path
+          link.download = "Navneet-Srivastav-Resume.pdf";
+          document.body.appendChild(link);
+         link.click();
+        document.body.removeChild(link);
+        }
+
+        // Custom cursor (desktop only)
+        function setupCustomCursor() {
+            const cursor = document.getElementById('custom-cursor');
+            if (window.innerWidth < 1024) return;
+            
+            document.addEventListener('mousemove', (e) => {
+                gsap.to(cursor, {
+                    x: e.clientX - 15,
+                    y: e.clientY - 15,
+                    duration: 0.1
+                });
+            });
+            
+            // Hover effect on buttons
+            const hoverables = document.querySelectorAll('a, button');
+            hoverables.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(1.6)';
+                    cursor.style.borderColor = '#fff';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1)';
+                    cursor.style.borderColor = '#00ff9d';
+                });
+            });
+        }
+
+        // Hero animation
+        function heroAnimation() {
+            gsap.from("#hero-name", {
+                y: 120,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power4.out"
+            });
+            
+            gsap.from(".hero-bg", {
+                scale: 0.95,
+                opacity: 0,
+                duration: 2,
+                ease: "power2.out"
+            });
+        }
+
+        // Main initialization
+        function init() {
+            initializeTailwind();
+            populateSkills();
+            renderProjects(projects);
+            renderServices();
+            
+            // Trigger animations on load
+            setTimeout(() => {
+                heroAnimation();
+                animateSkillBars();
+                animateStats();
+                setupThemeToggle();
+                setupMobileMenu();
+                setupCustomCursor();
+            }, 600);
+            
+            // Keyboard escape for modals
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape") {
+                    const aiModal = document.getElementById('ai-modal');
+                    const quoteModal = document.getElementById('quote-modal');
+                    if (!aiModal.classList.contains('hidden')) toggleAIChat();
+                    if (!quoteModal.classList.contains('hidden')) closeQuoteModal();
+                }
+            });
+            
+            // Back to top button (hidden but functional)
+            console.log('%c✅ Portfolio ready! Looks premium and fully responsive.', 'color:#00ff9d; font-family:monospace');
+        }
+
+        // Boot the app
+        window.onload = init;
+    </script>
+</body>
+</html>
+
+
+
