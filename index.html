@@ -155,7 +155,7 @@
                 <a href="#contact" 
                    class="px-6 py-3 bg-[#00ff9d] text-zinc-950 font-semibold rounded-2xl hover:bg-white transition-all flex items-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i>
-                    <span>Hire me</span>
+                    <span>Hire Me</span>
                 </a>
 
                 <!-- Mobile Hamburger -->
@@ -659,7 +659,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="text-sm text-zinc-400">
-                    © 2025 Navneet Srivastav.
+                    ©️ 2025 Navneet Srivastav.
                 </div>
                 
                 <div class="flex gap-8 text-2xl">
@@ -680,14 +680,26 @@
         <div class="bg-zinc-900 max-w-md w-full mx-4 rounded-3xl p-8">
             <h3 class="text-2xl font-bold mb-6">Request a Quote</h3>
             <form id="quote-form" onsubmit="submitQuote(event)" class="space-y-6">
-                <input type="text" placeholder="Your Name" class="w-full px-6 py-4 rounded-2xl bg-zinc-800">
-                <input type="email" placeholder="Email" class="w-full px-6 py-4 rounded-2xl bg-zinc-800">
-                <textarea placeholder="Project details" rows="4" class="w-full px-6 py-4 rounded-2xl bg-zinc-800"></textarea>
+
+                <input type="hidden" id="quote-service">
+            
+                <input type="text" id="q-name" placeholder="Your Name" required
+                    class="w-full px-6 py-4 rounded-2xl bg-zinc-800">
+            
+                <input type="email" id="q-email" placeholder="Email" required
+                    class="w-full px-6 py-4 rounded-2xl bg-zinc-800">
+            
+                <textarea id="q-message" placeholder="Project details" rows="4"
+                    class="w-full px-6 py-4 rounded-2xl bg-zinc-800"></textarea>
+            
                 <div class="flex gap-4">
                     <button type="button" onclick="closeQuoteModal()" 
-                            class="flex-1 py-4 border border-white/30 rounded-2xl">Cancel</button>
+                        class="flex-1 py-4 border border-white/30 rounded-2xl">Cancel</button>
+            
                     <button type="submit" 
-                            class="flex-1 py-4 bg-[#00ff9d] text-zinc-950 rounded-2xl font-semibold">Send Request</button>
+                        class="flex-1 py-4 bg-[#00ff9d] text-zinc-950 rounded-2xl font-semibold">
+                        Send Request
+                    </button>
                 </div>
             </form>
         </div>
@@ -939,15 +951,50 @@ renderProjects(filtered);
         }
 
         function openQuoteModal(serviceName) {
-            document.getElementById('quote-modal').classList.remove('hidden');
-            // Could prefill service name if needed
-        }
-        
-        function closeQuoteModal() {
-            document.getElementById('quote-modal').classList.add('hidden');
-        }
+    document.getElementById('quote-modal').classList.remove('hidden');
 
-        function animateStats() {
+    // store service
+    document.getElementById('quote-service').value = serviceName;
+
+    // auto message
+    document.getElementById('q-message').value =
+        `Hi, I want a quote for ${serviceName}`;
+}
+
+function closeQuoteModal() {
+    document.getElementById('quote-modal').classList.add('hidden');
+}
+
+async function submitQuote(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("q-name").value;
+    const email = document.getElementById("q-email").value;
+    const service = document.getElementById("quote-service").value;
+    const message = document.getElementById("q-message").value;
+
+    try {
+        const res = await fetch("http://localhost:5000/quote", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, email, service, message })
+        });
+
+        const data = await res.json();
+
+        alert("🔥 " + data.message);
+
+        e.target.reset();
+        closeQuoteModal();
+
+    } catch (err) {
+        alert("❌ Failed to send quote");
+    }
+}
+
+function animateStats() {
             function animateValue(id, start, end, duration) {
                 let startTimestamp = null;
                 const step = (timestamp) => {
@@ -1083,22 +1130,32 @@ renderProjects(filtered);
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
+    const service = document.getElementById("service").value;
     const message = document.getElementById("message").value;
 
-    const res = await fetch("http://localhost:5000/quote", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, email, message })
-    });
+    try {
+        const res = await fetch("http://localhost:5000/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, email, service, message })
+        });
 
-    const data = await res.json();
+        const data = await res.json();
 
-    alert(data.message);
+        alert("✅ " + data.message);
+
+        e.target.reset();
+
+    } catch (err) {
+        alert("❌ Failed to send message");
+    }
 }
+        
 
-         function downloadResume() {
+
+      function downloadResume() {
          const link = document.createElement("a");
          link.href = "resume/navneet-srivastav-resume.pdf"; // resume path
           link.download = "Navneet-Srivastav-Resume.pdf";
@@ -1187,6 +1244,3 @@ renderProjects(filtered);
     </script>
 </body>
 </html>
-
-
-
