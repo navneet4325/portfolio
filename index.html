@@ -76,12 +76,32 @@
     .floating-icon {
         display: none !important;
     }
-}
 
-        .mobile-link {
-    position: relative;
-    padding: 10px 20px;
-    transition: 0.3s;
+    .nav {
+        padding: 0.6rem 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+    }
+
+    .mobile-link {
+        position: relative;
+        padding: 12px 16px;
+        font-size: 1.1rem;
+        width: 100%;
+        border-radius: 1rem;
+    }
+
+    .mobile-link:hover {
+        color: #00ff9d;
+        transform: scale(1.02);
+    }
+
+    #mobile-menu {
+        padding-top: 5rem;
+        overflow-y: auto;
+    }
 }
 
 .mobile-link:hover {
@@ -166,23 +186,23 @@
         </div>
 
         <div id="mobile-menu" 
-        class="fixed inset-0 bg-black/95 z-[9999] hidden flex flex-col justify-start items-start">
+        class="fixed inset-0 bg-black/95 z-[9999] hidden flex flex-col justify-start items-start text-white">
    
        <!-- Close Button -->
-       <div class="flex justify-end p-6">
-           <button id="close-menu" class="text-4xl">
+       <div class="flex justify-end p-5">
+           <button id="close-menu" class="text-4xl text-white">
                <i class="fa-solid fa-xmark"></i>
            </button>
        </div>
    
        <!-- Menu Links -->
-       <div class="mt-20 px-6 flex flex-col gap-6 text-2xl font-semibold w-full">
-           <a href="#about" class="mobile-link">About</a>
-           <a href="#skills" class="mobile-link">Skills</a>
-           <a href="#projects" class="mobile-link">Projects</a>
-           <a href="#services" class="mobile-link">Services</a>
-           <a href="#testimonials" class="mobile-link">Testimonials</a>
-           <a href="#contact" class="mobile-link">Contact</a>
+       <div class="mt-16 px-5 sm:px-6 w-full">
+           <a href="#about" class="mobile-link block">About</a>
+           <a href="#skills" class="mobile-link block">Skills</a>
+           <a href="#projects" class="mobile-link block">Projects</a>
+           <a href="#services" class="mobile-link block">Services</a>
+           <a href="#testimonials" class="mobile-link block">Testimonials</a>
+           <a href="#contact" class="mobile-link block">Contact</a>
        </div>
    </div>
     </nav>
@@ -1049,15 +1069,22 @@ function animateStats() {
     const btn = document.getElementById('mobile-menu-btn');
     const closeBtn = document.getElementById('close-menu');
     const menu = document.getElementById('mobile-menu');
+    const menuLinks = menu.querySelectorAll('a');
+
+    const closeMenu = () => {
+        menu.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    };
 
     btn.addEventListener('click', () => {
         menu.classList.remove('hidden');
-        document.body.style.overflow = "hidden"; // scroll lock
+        document.body.style.overflow = 'hidden'; // scroll lock
     });
 
-    closeBtn.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        document.body.style.overflow = "auto";
+    closeBtn.addEventListener('click', closeMenu);
+
+    menuLinks.forEach((link) => {
+        link.addEventListener('click', closeMenu);
     });
 }
 
