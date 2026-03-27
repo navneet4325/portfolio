@@ -187,7 +187,7 @@
    </div>
     </nav>
     
-    <section id="hero" class="min-h-screen hero-bg flex items-center relative pt-24 md:pt-0">
+    <section id="hero" class="min-h-screen hero-bg flex items-center relative pt-20 md:pt-0">
         <div class="max-w-7xl mx-auto px-5 md:px-9 pt-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <!-- Left Content -->
@@ -207,20 +207,20 @@
                         <span class="text-[#00ff9d]">AI Engineer</span>
                     </div>
 
-                    <p class="max-w-lg text-xl text-zinc-400">
+                    <p class="max-w-lg text-lg md:text-xl text-zinc-400">
                         Turning ideas into high-converting digital products that bring you clients.
                     </p>
 
-                    <div class="flex flex-wrap gap-4">
+                    <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#projects" 
                            onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})"
-                           class="px-8 py-3 bg-white text-zinc-950 rounded-2xl font-semibold flex items-center gap-3 hover:scale-105 transition-transform">
+                           class="px-6 py-3 md:px-8 md:py-3 bg-white text-zinc-950 rounded-2xl font-semibold flex items-center justify-center gap-3 hover:scale-105 transition-transform">
                             View My Projects
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                         
                         <button onclick="downloadResume()" 
-                                class="px-8 py-3 border border-white/30 rounded-2xl font-medium flex items-center gap-3 hover:border-[#00ff9d] transition-all">
+                                class="px-6 py-3 md:px-8 md:py-3 border border-white/30 rounded-2xl font-medium flex items-center justify-center gap-3 hover:border-[#00ff9d] transition-all">
                             <i class="fa-solid fa-download"></i>
                             Resume
                         </button>
@@ -229,9 +229,9 @@
 
                 <!-- Right Visual -->
                 <div class="lg:col-span-5 relative flex justify-center">
-                    <div class="relative w-80 h-80 md:w-96 md:h-96">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
                         <!-- Profile Image -->
-                        <div class="absolute inset-0 rounded-[4rem] overflow-hidden border-8 border-[#00ff9d]/30 shadow-2xl">
+                        <div class="absolute inset-0 rounded-[3rem] sm:rounded-[4rem] overflow-hidden border-4 sm:border-8 border-[#00ff9d]/30 shadow-2xl">
                             <img src="WhatsApp Image 2026-03-16 at 12.20.36.jpeg" 
                                  alt="Navneet Srivastav" 
                                  class="w-full h-full object-cover object-top grayscale-[0.3] hover:grayscale-0 transition-all duration-700"
@@ -305,15 +305,15 @@
                          alt="Navneet Srivastav" 
                          class="rounded-3xl shadow-2xl w-full h-auto object-cover object-top grayscale-[0.3] hover:grayscale-0 transition-all duration-700">
                     
-                    <div class="absolute -bottom-8 -left-8 glass p-8 rounded-3xl">
-                        <div class="flex gap-8">
+                    <div class="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 glass p-4 md:p-8 rounded-3xl">
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-8">
                             <div>
-                                <div class="text-4xl font-bold text-[#00ff9d]">100%</div>
-                                <div class="text-sm text-zinc-400">On-time delivery</div>
+                                <div class="text-2xl md:text-4xl font-bold text-[#00ff9d]">100%</div>
+                                <div class="text-xs md:text-sm text-zinc-400">On-time delivery</div>
                             </div>
                             <div>
-                                <div class="text-4xl font-bold text-[#00ff9d]">4.98</div>
-                                <div class="text-sm text-zinc-400">Average rating</div>
+                                <div class="text-2xl md:text-4xl font-bold text-[#00ff9d]">4.98</div>
+                                <div class="text-xs md:text-sm text-zinc-400">Average rating</div>
                             </div>
                         </div>
                     </div>
@@ -377,12 +377,12 @@
                 </div>
                 
                 <!-- Filters -->
-                <div class="flex flex-wrap gap-3 mt-6 md:mt-0" id="project-filters">
-                    <button onclick="filterProjects('all')" class="active-filter px-7 py-3 rounded-3xl text-sm font-medium bg-[#00ff9d] text-zinc-950">All</button>
-                    <button onclick="filterProjects('web')" class="px-7 py-3 rounded-3xl text-sm font-medium border border-white/30 hover:border-white">Web</button>
-                    <button onclick="filterProjects('app')" class="px-7 py-3 rounded-3xl text-sm font-medium border border-white/30 hover:border-white">App</button>
-                    <button onclick="filterProjects('ai')" class="px-7 py-3 rounded-3xl text-sm font-medium border border-white/30 hover:border-white">AI</button>
-                    <button onclick="filterProjects('ecommerce')" class="px-7 py-3 rounded-3xl text-sm font-medium border border-white/30 hover:border-white">E-commerce</button>
+                <div class="flex flex-wrap gap-2 md:gap-3 mt-6 md:mt-0" id="project-filters">
+                    <button onclick="filterProjects('all')" class="active-filter px-4 py-2 md:px-7 md:py-3 rounded-3xl text-xs md:text-sm font-medium bg-[#00ff9d] text-zinc-950">All</button>
+                    <button onclick="filterProjects('web')" class="px-4 py-2 md:px-7 md:py-3 rounded-3xl text-xs md:text-sm font-medium border border-white/30 hover:border-white">Web</button>
+                    <button onclick="filterProjects('app')" class="px-4 py-2 md:px-7 md:py-3 rounded-3xl text-xs md:text-sm font-medium border border-white/30 hover:border-white">App</button>
+                    <button onclick="filterProjects('ai')" class="px-4 py-2 md:px-7 md:py-3 rounded-3xl text-xs md:text-sm font-medium border border-white/30 hover:border-white">AI</button>
+                    <button onclick="filterProjects('ecommerce')" class="px-4 py-2 md:px-7 md:py-3 rounded-3xl text-xs md:text-sm font-medium border border-white/30 hover:border-white">E-commerce</button>
                 </div>
             </div>
 
@@ -492,7 +492,7 @@
 
     <!-- AI SMART ASSISTANT -->
     <div onclick="toggleAIChat()" id="ai-bubble"
-         class="fixed bottom-8 right-8 w-16 h-16 bg-[#00ff9d] text-zinc-950 rounded-3xl flex items-center justify-center text-4xl shadow-2xl cursor-pointer hover:scale-110 transition-transform z-50">
+         class="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-12 h-12 md:w-16 md:h-16 bg-[#00ff9d] text-zinc-950 rounded-3xl flex items-center justify-center text-2xl md:text-4xl shadow-2xl cursor-pointer hover:scale-110 transition-transform z-50">
         <i class="fa-solid fa-robot"></i>
     </div>
 
@@ -601,50 +601,50 @@
                 </div>
                 
                 <!-- Social Links -->
-                <div class="flex flex-col gap-6 md:gap-8">
+                <div class="flex flex-col gap-4 md:gap-6">
                     
                     <a href="https://www.facebook.com/profile.php?id=100083084945424"
-                        class="flex items-center gap-4 md:gap-5 group">
-                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-2xl md:text-3xl">𝕗</div>
+                        class="flex items-center gap-3 md:gap-4 group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 glass rounded-3xl flex items-center justify-center text-lg md:text-xl">𝕗</div>
                         <div>
                             <div class="font-medium group-hover:text-[#00ff9d]">Facebook</div>
-                            <div class="text-sm text-zinc-400">Follow on Facebook</div>
+                            <div class="text-xs md:text-sm text-zinc-400">Follow on Facebook</div>
                         </div>
                     </a>
                     
                     <a href="https://wa.me/918726519334"
-                        class="flex items-center gap-4 md:gap-5 group">
-                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-2xl md:text-3xl">📱</div>
+                        class="flex items-center gap-3 md:gap-4 group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 glass rounded-3xl flex items-center justify-center text-lg md:text-xl">📱</div>
                         <div>
                             <div class="font-medium group-hover:text-[#00ff9d]">WhatsApp / Call</div>
-                            <div class="text-sm text-zinc-400">+91 8726519334</div>
+                            <div class="text-xs md:text-sm text-zinc-400">+91 8726519334</div>
                         </div>
                     </a>
                     
                     <a href="https://linkedin.com/in/navneet-srivastav-a84b38377"
-                        class="flex items-center gap-4 md:gap-5 group">
-                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-2xl md:text-3xl">in</div>
+                        class="flex items-center gap-3 md:gap-4 group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 glass rounded-3xl flex items-center justify-center text-lg md:text-xl">in</div>
                         <div>
                             <div class="font-medium group-hover:text-[#00ff9d]">LinkedIn</div>
-                            <div class="text-sm text-zinc-400">Connect professionally</div>
+                            <div class="text-xs md:text-sm text-zinc-400">Connect professionally</div>
                         </div>
                     </a>
                     
                     <a href="https://instagram.com/navneet_sri_"
-                        class="flex items-center gap-4 md:gap-5 group">
-                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-2xl md:text-3xl">◎</div>
+                        class="flex items-center gap-3 md:gap-4 group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 glass rounded-3xl flex items-center justify-center text-lg md:text-xl">◎</div>
                         <div>
                             <div class="font-medium group-hover:text-[#00ff9d]">Instagram</div>
-                            <div class="text-sm text-zinc-400">Follow on Instagram</div>
+                            <div class="text-xs md:text-sm text-zinc-400">Follow on Instagram</div>
                         </div>
                     </a>
                     
                     <a href="https://github.com/Navneet764"
-                        class="flex items-center gap-4 md:gap-5 group">
-                        <div class="w-12 h-12 md:w-14 md:h-14 glass rounded-3xl flex items-center justify-center text-xl md:text-2xl">&lt;&gt;</div>
+                        class="flex items-center gap-3 md:gap-4 group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 glass rounded-3xl flex items-center justify-center text-base md:text-lg">&lt;&gt;</div>
                         <div>
                             <div class="font-medium group-hover:text-[#00ff9d]">GitHub</div>
-                            <div class="text-sm text-zinc-400">Follow on GitHub</div>
+                            <div class="text-xs md:text-sm text-zinc-400">Follow on GitHub</div>
                         </div>
                     </a>
                 
